@@ -9,14 +9,13 @@ import time
 @pytest.fixture
 def browser():
     options = Options()
-    options.headless = True  
-    service = Service('/path/to/geckodriver', log_path='/path/to/logfile.log') 
-    driver = webdriver.Firefox(service=service, options=options)
+    options.headless = True   
+    driver = webdriver.Firefox(options=options)
     yield driver
     driver.quit()
 
 def test_addition(browser):
-    browser.get('http://localhost:5000')  
+    browser.get('http://localhost:6005')  
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('2')
     browser.find_element(By.NAME, 'operation').send_keys('add')
@@ -26,7 +25,7 @@ def test_addition(browser):
     assert result == '5.0'  
 
 def test_subtraction(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('2')
     browser.find_element(By.NAME, 'operation').send_keys('subtract')
@@ -36,7 +35,7 @@ def test_subtraction(browser):
     assert result == '1.0'
 
 def test_multiplication(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('2')
     browser.find_element(By.NAME, 'operation').send_keys('multiply')
@@ -46,7 +45,7 @@ def test_multiplication(browser):
     assert result == '6.0'
 
 def test_division(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('2')
     browser.find_element(By.NAME, 'operation').send_keys('divide')
@@ -56,7 +55,7 @@ def test_division(browser):
     assert result == '1.5'
 
 def test_degree(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('2')
     browser.find_element(By.NAME, 'operation').send_keys('degree')
@@ -65,7 +64,7 @@ def test_degree(browser):
     result = browser.find_element(By.ID, 'result').text
     assert result == '9.0'  
 def test_maximum(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('5')
     browser.find_element(By.NAME, 'operation').send_keys('maximum')
@@ -74,7 +73,7 @@ def test_maximum(browser):
     result = browser.find_element(By.ID, 'result').text
     assert result == '5.0'  
 def test_minimum(browser):
-    browser.get('http://localhost:5000')
+    browser.get('http://localhost:6005')
     browser.find_element(By.NAME, 'num1').send_keys('3')
     browser.find_element(By.NAME, 'num2').send_keys('5')
     browser.find_element(By.NAME, 'operation').send_keys('minimum')
