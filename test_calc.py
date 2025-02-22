@@ -1,5 +1,5 @@
 import pytest
-from app import add, subtract, multiply, divide, degree, maximum, minimum
+from calc import add, subtract, multiply, divide, degree, maximum, minimum
 
 NUMBER_1 = 3.0
 NUMBER_2 = 2.0
